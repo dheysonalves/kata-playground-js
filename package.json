@@ -1,0 +1,57 @@
+{
+  "name": "js-com-tdd",
+  "version": "1.0.0",
+  "description": "Biblioteca do curso de JS com TDD na prática.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "./node_modules/.bin/mocha src/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha src/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test",
+    "bail": "npm runtest -- --bail"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dheyson/js-tdd-course.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Dheyson Alves <dheyson10@gmail.com> (https://dheysonalves-tech.surge.sh/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dheyson/js-tdd-course/issues"
+  },
+  "homepage": "https://github.com/Dheyson/js-tdd-course#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^3.1.0",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "sinon-chai": "^3.7.0"
+  }
+}
